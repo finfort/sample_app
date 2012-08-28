@@ -2,8 +2,12 @@ require 'spec_helper'
 
 describe PagesController do
  render_views
+  before(:each) do
+    @task_title="should be successful"
+  end
+
   describe "GET 'home'" do
-    it "should be successful" do
+    it @task_title do
       get 'home'
       response.should be_success
     end
@@ -17,7 +21,7 @@ describe PagesController do
 
 
   describe "GET 'contact'" do
-    it "should be successful" do
+    it @task_title do
       get 'contact'
       response.should be_success
     end
@@ -42,4 +46,12 @@ describe PagesController do
     #end
 
   end
+
+    describe "Get 'help'" do
+      it "should be successful" do
+        get "help"
+        response.should be_success
+
+      end
+    end
 end
